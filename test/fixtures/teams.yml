@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  stadium: MyString
+  foundation: 2017-06-11
+  country: MyString
+
+two:
+  name: MyString
+  stadium: MyString
+  foundation: 2017-06-11
+  country: MyString

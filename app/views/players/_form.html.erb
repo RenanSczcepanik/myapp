@@ -1,0 +1,54 @@
+<%= form_with(model: player, local: true) do |form| %>
+  <% if player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :player_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :player_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthdate %>
+    <%= form.date_select :birthdate, id: :player_birthdate, :order => [:day, :month, :year],
+    :start_year => 1900, :end_year => Date.current.year
+    %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foot %>
+    <%= form.select(:foot, options_for_select([["Right", "R"], ["Left", "L"],["Both","B"]]),
+    :prompt => true)
+    %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Player Style' %>
+    <%= form.select(:originposition, options_for_select([["Goalkeeper", "G"],["Defensive", "D"],
+      ["Midfield", "M"],["Attacking", "A"]]),
+     :prompt => true)
+     %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team_id %>
+    <%= form.collection_select(:team_id, Team.all, :id, :name, :prompt => true)%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

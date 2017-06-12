@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.3.1'
+gem 'rails_12factor', group: :production
 gem 'rails', '~> 5.1.1'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -24,6 +25,7 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem "twitter-bootstrap-rails"
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'therubyracer', :platform=>:ruby
@@ -37,4 +39,5 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
